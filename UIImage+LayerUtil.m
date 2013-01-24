@@ -3,7 +3,6 @@
 //  Effient
 //
 //  Created by Constantine Karlis on 28/10/2011.
-//  Copyright (c) 2011 rehabstudio. All rights reserved.
 //
 
 #import "UIImage+LayerUtil.h"

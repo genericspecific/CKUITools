@@ -1,9 +1,7 @@
 //
 //  UIView+Position.h
-//  Telstra90Day
 //
 //  Created by Constantine Karlis on 7/28/12.
-//  Copyright (c) 2012 Loud and Clear. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

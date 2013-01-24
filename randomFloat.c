@@ -3,7 +3,6 @@
 //  Curate
 //
 //  Created by Constantine Karlis on 13/06/12.
-//  Copyright (c) 2012 Constantine Karlis. All rights reserved.
 //
 
 #include "stdlib.h"
