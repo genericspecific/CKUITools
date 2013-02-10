@@ -1,4 +1,4 @@
-CKTools
+CKUITools
 =======
 
-A collection of Categories and other tools designed to make a developer's life easier
+A collection of UI focused tools designed to make a developer's life easier.
