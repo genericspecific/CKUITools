@@ -20,13 +20,16 @@
 @property float right;
 @property float bottom;
 
+// these methods are inspired by Kevin O'Neill's UsefulBits UIView+Positioning methods
+// https://github.com/kevinoneill/Useful-Bits/tree/master/UsefulBits/UIKit
+
 - (void)centerInRect:(CGRect)rect;
 - (void)centerVerticallyInRect:(CGRect)rect;
 - (void)centerHorizontallyInRect:(CGRect)rect;
 - (void)centerInSuperView;
 - (void)centerVerticallyInSuperView;
 - (void)centerHorizontallyInSuperView;
-- (void)centerHorizontallyBelow:(UIView *)view padding:(CGFloat)padding;
-- (void)centerHorizontallyBelow:(UIView *)view;
+- (void)centerHorizontallyBelow:(UIView*)view padding:(CGFloat)padding;
+- (void)centerHorizontallyBelow:(UIView*)view;
 
 @end

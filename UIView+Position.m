@@ -82,17 +82,17 @@
 
 - (void)centerInSuperView
 {
-    self.center = self.superView.center;
+    self.center = self.superview.center;
 }
 
 - (void)centerVerticallyInSuperView
 {
-    [self centerVerticallyInRect:self.superView.frame]:
+    [self centerVerticallyInRect:self.superview.frame];
 }
 
 - (void)centerHorizontallyInSuperView
 {
-    [self centerHorizontallyInRect:self.superView.frame]:
+    [self centerHorizontallyInRect:self.superview.frame];
 }
 
 - (void)centerHorizontallyBelow:(UIView *)view padding:(CGFloat)padding
