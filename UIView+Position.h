@@ -20,4 +20,13 @@
 @property float right;
 @property float bottom;
 
+- (void)centerInRect:(CGRect)rect;
+- (void)centerVerticallyInRect:(CGRect)rect;
+- (void)centerHorizontallyInRect:(CGRect)rect;
+- (void)centerInSuperView;
+- (void)centerVerticallyInSuperView;
+- (void)centerHorizontallyInSuperView;
+- (void)centerHorizontallyBelow:(UIView *)view padding:(CGFloat)padding;
+- (void)centerHorizontallyBelow:(UIView *)view;
+
 @end

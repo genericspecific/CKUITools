@@ -65,4 +65,45 @@
     return self.x + self.frame.size.height;
 }
 
+-(void)centerInRect:(CGRect)rect
+{
+    self.center = CGPointMake(rect.origin.x + rect.size.width/2.0f , rect.origin.y + rect.size.height/2.0f);
+}
+
+- (void)centerVerticallyInRect:(CGRect)rect
+{
+    self.y = rect.origin.y + (rect.size.height - self.frame.size.height)/2.0f;
+}
+
+- (void)centerHorizontallyInRect:(CGRect)rect
+{
+    self.x = rect.origin.x + (rect.size.width - self.frame.size.width)/2.0f;
+}
+
+- (void)centerInSuperView
+{
+    self.center = self.superView.center;
+}
+
+- (void)centerVerticallyInSuperView
+{
+    [self centerVerticallyInRect:self.superView.frame]:
+}
+
+- (void)centerHorizontallyInSuperView
+{
+    [self centerHorizontallyInRect:self.superView.frame]:
+}
+
+- (void)centerHorizontallyBelow:(UIView *)view padding:(CGFloat)padding
+{
+    self.y = CGRectGetMaxY(view.frame) + padding;
+    self.x = view.x + (view.frame.size.width - self.frame.size.width)/2.0f;
+}
+
+- (void)centerHorizontallyBelow:(UIView *)view
+{
+    [self centerHorizontallyBelow:view padding:0.0f];
+}
+
 @end
