@@ -29,7 +29,12 @@
 - (void)centerInSuperView;
 - (void)centerVerticallyInSuperView;
 - (void)centerHorizontallyInSuperView;
+
 - (void)centerHorizontallyBelow:(UIView*)view padding:(CGFloat)padding;
 - (void)centerHorizontallyBelow:(UIView*)view;
+- (void)alignLeftHorizontallyBelow:(UIView*)view padding:(CGFloat)padding;
+- (void)alignLeftHorizontallyBelow:(UIView*)view;
+- (void)alignRightHorizontallyBelow:(UIView*)view padding:(CGFloat)padding;
+- (void)alignRightHorizontallyBelow:(UIView*)view;
 
 @end

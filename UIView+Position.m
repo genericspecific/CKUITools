@@ -106,4 +106,26 @@
     [self centerHorizontallyBelow:view padding:0.0f];
 }
 
+-(void)alignLeftHorizontallyBelow:(UIView *)view padding:(CGFloat)padding
+{
+    self.y = CGRectGetMaxY(view.frame) + padding;
+    self.x = view.x;
+}
+
+-(void)alignLeftHorizontallyBelow:(UIView *)view
+{
+    [self alignLeftHorizontallyBelow:view padding:0.0];
+}
+
+-(void)alignRightHorizontallyBelow:(UIView *)view padding:(CGFloat)padding
+{
+    self.y = CGRectGetMaxY(view.frame) + padding;
+    self.right = view.right;
+}
+
+-(void)alignRightHorizontallyBelow:(UIView *)view
+{
+    [self alignRightHorizontallyBelow:view padding:0.0];
+}
+
 @end
