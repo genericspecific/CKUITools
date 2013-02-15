@@ -52,7 +52,7 @@
 
 -(float)right
 {
-    return self.x + self.frame.size.width;
+    return CGRectGetMaxX(self.frame);
 }
 
 -(void)setBottom:(float)value
@@ -62,12 +62,13 @@
 
 -(float)bottom
 {
-    return self.x + self.frame.size.height;
+    return CGRectGetMaxY(self.frame);
 }
 
 -(void)centerInRect:(CGRect)rect
 {
-    self.center = CGPointMake(rect.origin.x + rect.size.width/2.0f , rect.origin.y + rect.size.height/2.0f);
+    [self centerHorizontallyInRect:rect];
+    [self centerVerticallyInRect:rect];
 }
 
 - (void)centerVerticallyInRect:(CGRect)rect
@@ -82,7 +83,9 @@
 
 - (void)centerInSuperView
 {
-    self.center = self.superview.center;
+    float xx = (self.superview.frame.size.width - self.frame.size.width)/2.0f;
+    float yy = (self.superview.frame.size.height - self.frame.size.height)/2.0f;
+    self.position = CGPointMake(xx, yy);
 }
 
 - (void)centerVerticallyInSuperView
