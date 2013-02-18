@@ -83,19 +83,17 @@
 
 - (void)centerInSuperView
 {
-    float xx = (self.superview.frame.size.width - self.frame.size.width)/2.0f;
-    float yy = (self.superview.frame.size.height - self.frame.size.height)/2.0f;
-    self.position = CGPointMake(xx, yy);
+    self.center = CGPointMake(self.superview.frame.size.width/2.0, self.superview.frame.size.height/2.0);
 }
 
 - (void)centerVerticallyInSuperView
 {
-    [self centerVerticallyInRect:self.superview.frame];
+    self.y = (self.superview.frame.size.height - self.frame.size.height)/2.0f;
 }
 
 - (void)centerHorizontallyInSuperView
 {
-    [self centerHorizontallyInRect:self.superview.frame];
+    self.x = (self.superview.frame.size.width - self.frame.size.width)/2.0f;
 }
 
 - (void)centerHorizontallyBelow:(UIView *)view padding:(CGFloat)padding
