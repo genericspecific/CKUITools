@@ -15,15 +15,7 @@
 
 -(CGSize)sizeWithOrientation:(int)orientation
 {
-    CGRect r = [self applicationFrame];
-    if (UIInterfaceOrientationIsLandscape(orientation))
-    {
-        return CGSizeMake(r.size.height, r.size.width);
-    }
-    else
-    {
-        return CGSizeMake(r.size.width , r.size.height);
-    }
+    return [self rectWithOrientation:orientation].size;
 }
 
 -(CGRect)rectWithOrientation:(int)orientation
