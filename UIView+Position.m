@@ -118,7 +118,7 @@
 
 - (void)centerInSuperView
 {
-    self.center = CGPointMake(self.superview.bounds.size.width/2.0, self.superview.bounds.size.height/2.0);
+    self.center = CGPointMake(self.superview.bounds.size.width/2.0f, self.superview.bounds.size.height/2.0f);
 }
 
 - (void)centerVerticallyInSuperView
@@ -150,7 +150,7 @@
 
 -(void)alignLeftHorizontallyBelow:(UIView *)view
 {
-    [self alignLeftHorizontallyBelow:view padding:0.0];
+    [self alignLeftHorizontallyBelow:view padding:0.0f];
 }
 
 -(void)alignRightHorizontallyBelow:(UIView *)view padding:(CGFloat)padding
