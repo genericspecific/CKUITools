@@ -16,8 +16,7 @@
 
 -(void)setPosition:(CGPoint)position
 {
-    self.x = position.x;
-    self.y = position.y;
+    [self setCenter:CGPointMake(position.x + self.bounds.size.width/2.0f, position.y + self.bounds.size.height/2.0f)];
 }
 
 -(CGPoint)position
@@ -25,9 +24,45 @@
     return self.frame.origin;
 }
 
+-(void)setSize:(CGSize)size
+{
+    CGRect r = self.bounds;
+    r.size = size;
+    self.bounds = r;
+}
+
+-(CGSize)size
+{
+    return self.bounds.size;
+}
+
+-(void)setWidth:(float)width
+{
+    CGRect r = self.bounds;
+    r.size.width = width;
+    self.bounds = r;
+}
+
+-(float)width
+{
+    return self.bounds.size.width;
+}
+
+-(void)setHeight:(float)height
+{
+    CGRect r = self.bounds;
+    r.size.height = height;
+    self.bounds = r;
+}
+
+-(float)height
+{
+    return self.bounds.size.height;
+}
+
 -(void)setX:(float)value
 {
-    [self setFrame:CGRectMake(value, self.y, self.frame.size.width, self.frame.size.height)];
+    [self setFrame:CGRectMake(value, self.y, self.bounds.size.width, self.bounds.size.height)];
 }
 
 -(float)x
@@ -37,7 +72,7 @@
 
 -(void)setY:(float)value
 {
-    [self setFrame:CGRectMake(self.x, value, self.frame.size.width, self.frame.size.height)];
+    [self setFrame:CGRectMake(self.x, value, self.bounds.size.width, self.bounds.size.height)];
 }
 
 -(float)y
@@ -47,7 +82,7 @@
 
 -(void)setRight:(float)value
 {
-    [self setFrame:CGRectMake(value - self.frame.size.width, self.y, self.frame.size.width, self.frame.size.height)];
+    [self setCenter:CGPointMake(value - self.bounds.size.width / 2.0f, self.center.y)];
 }
 
 -(float)right
@@ -57,7 +92,7 @@
 
 -(void)setBottom:(float)value
 {
-    [self setFrame:CGRectMake(self.x, value - self.frame.size.height, self.frame.size.width, self.frame.size.height)];
+    [self setCenter:CGPointMake(self.center.x, value - self.bounds.size.height / 2.0f)];
 }
 
 -(float)bottom
@@ -73,33 +108,33 @@
 
 - (void)centerVerticallyInRect:(CGRect)rect
 {
-    self.y = rect.origin.y + (rect.size.height - self.frame.size.height)/2.0f;
+    self.y = rect.origin.y + (rect.size.height - self.bounds.size.height)/2.0f;
 }
 
 - (void)centerHorizontallyInRect:(CGRect)rect
 {
-    self.x = rect.origin.x + (rect.size.width - self.frame.size.width)/2.0f;
+    self.x = rect.origin.x + (rect.size.width - self.bounds.size.width)/2.0f;
 }
 
 - (void)centerInSuperView
 {
-    self.center = CGPointMake(self.superview.frame.size.width/2.0, self.superview.frame.size.height/2.0);
+    self.center = CGPointMake(self.superview.bounds.size.width/2.0, self.superview.bounds.size.height/2.0);
 }
 
 - (void)centerVerticallyInSuperView
 {
-    self.y = (self.superview.frame.size.height - self.frame.size.height)/2.0f;
+    self.y = (self.superview.bounds.size.height - self.bounds.size.height)/2.0f;
 }
 
 - (void)centerHorizontallyInSuperView
 {
-    self.x = (self.superview.frame.size.width - self.frame.size.width)/2.0f;
+    self.x = (self.superview.bounds.size.width - self.bounds.size.width)/2.0f;
 }
 
 - (void)centerHorizontallyBelow:(UIView *)view padding:(CGFloat)padding
 {
     self.y = CGRectGetMaxY(view.frame) + padding;
-    self.x = view.x + (view.frame.size.width - self.frame.size.width)/2.0f;
+    self.x = view.x + (view.bounds.size.width - self.bounds.size.width)/2.0f;
 }
 
 - (void)centerHorizontallyBelow:(UIView *)view
@@ -127,6 +162,57 @@
 -(void)alignRightHorizontallyBelow:(UIView *)view
 {
     [self alignRightHorizontallyBelow:view padding:0.0];
+}
+
+-(void)snapPosition
+{
+//    if we have a retina screen snap to nearest 0.5
+    CGRect f = self.frame;
+    if ([self screenIsRetina])
+    {
+        f.origin = CGPointMake(roundf(f.origin.x*2.0)/2.0 , roundf(f.origin.y*2.0)/2.0);
+    }
+    else
+    {
+        
+        f.origin = CGPointMake(roundf(f.origin.x) , roundf(f.origin.y));
+    }
+    self.frame = f;
+}
+
+-(void)snapSize
+{
+    //    if we have a retina screen snap to nearest 0.5
+    CGRect f = self.frame;
+    if ([self screenIsRetina])
+    {
+        f.size = CGSizeMake(roundf(f.size.width*2.0)/2.0 , roundf(f.size.height*2.0)/2.0);
+    }
+    else
+    {
+        f.size = CGSizeMake(roundf(f.size.width) , roundf(f.size.height));
+    }
+    self.frame = f;
+}
+
+-(void)snapFrame
+{
+    if ([self screenIsRetina])
+    {
+        CGRect f = self.frame;
+        f.size = CGSizeMake(roundf(f.size.width*2.0)/2.0 , roundf(f.size.height*2.0)/2.0);
+        f.origin = CGPointMake(roundf(f.origin.x*2.0)/2.0 , roundf(f.origin.y*2.0)/2.0);
+        self.frame = f;
+    }
+    else
+    {
+        self.frame = CGRectIntegral(self.frame);
+    }
+}
+
+-(BOOL)screenIsRetina
+{
+    return ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2.0);
 }
 
 @end

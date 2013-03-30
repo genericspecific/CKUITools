@@ -19,8 +19,11 @@
 @property float y;
 @property float right;
 @property float bottom;
+@property CGSize size;
+@property float width;
+@property float height;
 
-// these methods are inspired by Kevin O'Neill's UsefulBits UIView+Positioning methods
+// some of these methods are inspired by Kevin O'Neill's UsefulBits UIView+Positioning methods
 // https://github.com/kevinoneill/Useful-Bits/tree/master/UsefulBits/UIKit
 
 - (void)centerInRect:(CGRect)rect;
@@ -36,5 +39,9 @@
 - (void)alignLeftHorizontallyBelow:(UIView*)view;
 - (void)alignRightHorizontallyBelow:(UIView*)view padding:(CGFloat)padding;
 - (void)alignRightHorizontallyBelow:(UIView*)view;
+
+- (void)snapPosition;
+- (void)snapSize;
+- (void)snapFrame;
 
 @end
