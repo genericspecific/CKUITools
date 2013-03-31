@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
   s.author       = { "Constantine Karlis" => "dino@constantinekarlis.com" }
   s.source       = { :git => "https://github.com/genericspecific/CKUITools.git", :tag => "v0.5.0" }
   s.platform     = :ios
-  s.source_files = '*.{h,m,c}'
+  s.source_files = '*.{h,m}'
   s.requires_arc = true
 end
