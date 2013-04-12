@@ -20,14 +20,14 @@
 
 -(CGRect)rectWithOrientation:(int)orientation
 {
+    CGRect r = [self applicationFrame];
     if (UIInterfaceOrientationIsLandscape(orientation))
     {
-        CGRect r = [self applicationFrame];
         return CGRectMake(0, 0, r.size.height, r.size.width);
     }
     else
     {
-        return self.bounds;
+        return CGRectMake(0, 0, r.size.width, r.size.height);
     }
 }
 
