@@ -19,7 +19,7 @@
 @property float y;
 @property float right;
 @property float bottom;
-@property CGSize size;
+@property CGSize viewSize;
 @property float width;
 @property float height;
 

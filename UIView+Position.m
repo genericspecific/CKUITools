@@ -24,14 +24,14 @@
     return self.frame.origin;
 }
 
--(void)setSize:(CGSize)size
+-(void)setViewSize:(CGSize)size
 {
     CGRect r = self.bounds;
     r.size = size;
     self.bounds = r;
 }
 
--(CGSize)size
+-(CGSize)viewSize
 {
     return self.bounds.size;
 }
