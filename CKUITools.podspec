@@ -8,5 +8,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/genericspecific/CKUITools.git", :tag => "v0.5.2" }
   s.platform     = :ios
   s.source_files = '*.{h,m,c}'
+  s.frameworks   = 'QuartzCore'
   s.requires_arc = true
 end
