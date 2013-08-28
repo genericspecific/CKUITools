@@ -15,7 +15,7 @@
 
 +(UIImage*)imageWithCALayer:(CALayer*)layer
 {
-    UIGraphicsBeginImageContext(layer.frame.size);
+    UIGraphicsBeginImageContextWithOptions(layer.frame.size, NO, [[UIScreen mainScreen] scale]);
     
     [layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage* out = UIGraphicsGetImageFromCurrentImageContext();
