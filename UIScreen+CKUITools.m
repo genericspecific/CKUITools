@@ -52,4 +52,18 @@
     return [self rectWithOrientation:UIInterfaceOrientationPortrait];
 }
 
+
+- (CGSize)keyboardSize;
+{
+    BOOL iPad = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
+    if (UIDeviceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation))
+    {
+        return CGSizeMake([self screenSizeWithOrientation:UIDeviceOrientationPortrait].width, iPad ? 264 : 216);
+    }
+    else
+    {
+        return CGSizeMake([self screenSizeWithOrientation:UIDeviceOrientationLandscapeLeft].width, iPad ? 352 : 162);
+    }
+}
+
 @end
