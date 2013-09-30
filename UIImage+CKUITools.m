@@ -35,6 +35,29 @@
     return image;
 }
 
++ (UIImage *)imageNamed:(NSString *)name tint:(UIColor *)tint;
+{
+  return [[self imageNamed:name] tint:tint];
+}
+
+- (UIImage *)tint:(UIColor *)tint;
+{
+  NSAssert(tint != nil, @"tint must not be nil");
+  
+  UIGraphicsBeginImageContextWithOptions([self size], NO, 0.0);
+  CGRect bounds = [self bounds];
+  
+  [tint setFill];
+  
+  UIRectFill(bounds);
+  [self drawInRect:bounds blendMode:kCGBlendModeDestinationIn alpha:1.0];
+  
+  UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+  UIGraphicsEndImageContext();
+  
+  return image;
+}
+
 - (UIColor *)colorAtPixel:(CGPoint)point
 {
     // Cancel if point is outside image coordinates
