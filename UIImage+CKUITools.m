@@ -45,7 +45,7 @@
   NSAssert(tint != nil, @"tint must not be nil");
   
   UIGraphicsBeginImageContextWithOptions([self size], NO, 0.0);
-  CGRect bounds = [self bounds];
+  CGRect bounds = CGRectMake(0, 0, self.size.width, self.size.height);
   
   [tint setFill];
   
