@@ -19,5 +19,6 @@
 -(CGRect)currentRect;
 -(CGRect)landscapeRect;
 -(CGRect)portraitRect;
+-(CGSize)keyboardSize;
 
 @end
