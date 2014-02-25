@@ -21,5 +21,6 @@
 #import "UIScreen+CKUITools.h"
 #import "UIView+Position.h"
 #import "UIImage+CKUITools.h"
+#import "UIWebView+CKUITools.h"
 
 #endif
