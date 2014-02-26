@@ -11,7 +11,7 @@
 
 typedef void (^CKUIWebViewCompletionBlock)(NSError*);
 
-const static const NSString* CKUIWebViewBlockDelegateKey;
+const static NSString* CKUIWebViewBlockDelegateKey;
 
 @interface UIWebView (CKUITools)
 
