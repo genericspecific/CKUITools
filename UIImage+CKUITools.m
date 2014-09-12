@@ -27,12 +27,7 @@
 
 + (UIImage *)imageWithUIView:(UIView *)view
 {
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth([view bounds]), CGRectGetHeight([view bounds])), NO, [[UIScreen mainScreen] scale]);
-    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
+    return [UIImage imageWithCALayer:view.layer];
 }
 
 + (UIImage *)imageNamed:(NSString *)name tint:(UIColor *)tint;

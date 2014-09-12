@@ -20,5 +20,6 @@
 -(CGRect)landscapeRect;
 -(CGRect)portraitRect;
 -(CGSize)keyboardSize;
+-(BOOL)isRetina;
 
 @end

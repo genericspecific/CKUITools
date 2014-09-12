@@ -17,5 +17,11 @@
 
 double randomDouble(void)
 {
-    return (double)arc4random() / (ARC4RANDOM_MAX+1);
+    static int didSeed;
+    if (!didSeed)
+    {
+        srand48(time(0));
+        didSeed = 1;
+    }
+    return drand48();
 }
